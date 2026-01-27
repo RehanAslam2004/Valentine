@@ -1,0 +1,1183 @@
+/* ============================================
+   CSS VARIABLES & ROOT STYLING
+   ============================================ */
+
+:root {
+  --primary-pink: #ff4d88;
+  --light-pink: #ffb6d5;
+  --baby-pink: #ffd6e8;
+  --blush: #ffeaf3;
+  --white: #ffffff;
+  --text-dark: #333333;
+  --shadow: 0 8px 25px rgba(255, 77, 136, 0.15);
+  --shadow-light: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease-in-out;
+  --font-main: 'Poppins', sans-serif;
+  --font-accent: 'Comic Neue', cursive;
+}
+
+/* ============================================
+   GLOBAL STYLES
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(135deg, #ffd6e8 0%, #ffeaf3 50%, #fff0f5 100%);
+  min-height: 100vh;
+  font-family: var(--font-main);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* ============================================
+   NAVIGATION BAR
+   ============================================ */
+
+nav {
+  background: linear-gradient(90deg, #ff4d88, #ffb6d5);
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 40px;
+  align-items: center;
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav h2 {
+  color: var(--white);
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+  position: relative;
+  font-size: 0.95rem;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--white);
+  transition: var(--transition);
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* ============================================
+   HOME PAGE - HERO SECTION
+   ============================================ */
+
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  color: var(--primary-pink);
+  margin-bottom: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  animation: slideDown 0.6s ease-out;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  color: var(--primary-pink);
+  margin-bottom: 50px;
+  animation: slideUp 0.6s ease-out 0.2s both;
+  font-style: italic;
+}
+
+.button-container {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: slideUp 0.6s ease-out 0.4s both;
+}
+
+.btn-yes, .btn-no {
+  padding: 15px 35px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: var(--transition);
+  box-shadow: var(--shadow);
+  font-family: var(--font-main);
+}
+
+.btn-yes {
+  background: linear-gradient(135deg, #ff4d88, #ff2f6f);
+  color: var(--white);
+}
+
+.btn-yes:hover {
+  transform: scale(1.15);
+  box-shadow: 0 12px 30px rgba(255, 77, 136, 0.3);
+}
+
+.btn-yes:active {
+  transform: scale(1.2);
+}
+
+.btn-no {
+  background: linear-gradient(135deg, #cccccc, #999999);
+  color: var(--white);
+}
+
+.btn-no:hover {
+  transform: scale(0.9);
+}
+
+.btn-no:active {
+  transform: scale(0.85);
+}
+
+/* Heart floating animation */
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(0deg) translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-600px) rotate(360deg) translateX(100px);
+    opacity: 0;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* ============================================
+   STORY PAGE - TIMELINE
+   ============================================ */
+
+.story {
+  padding: 80px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.story h1 {
+  color: var(--primary-pink);
+  margin-bottom: 60px;
+  font-size: 2.8rem;
+  text-align: center;
+  font-weight: 700;
+  animation: slideDown 0.6s ease-out;
+}
+
+.timeline {
+  position: relative;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, #ff4d88, #ffb6d5);
+}
+
+.event {
+  margin-bottom: 50px;
+  opacity: 0;
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+.event:nth-child(1) { animation-delay: 0.1s; }
+.event:nth-child(2) { animation-delay: 0.2s; }
+.event:nth-child(3) { animation-delay: 0.3s; }
+.event:nth-child(4) { animation-delay: 0.4s; }
+
+.event:nth-child(odd) {
+  margin-left: 0;
+  margin-right: auto;
+  padding-right: 60px;
+  width: 50%;
+  text-align: right;
+}
+
+.event:nth-child(even) {
+  margin-left: auto;
+  margin-right: 0;
+  padding-left: 60px;
+  width: 50%;
+  text-align: left;
+}
+
+.event-content {
+  background: linear-gradient(135deg, #fff0f5, #fffbfc);
+  padding: 30px;
+  border-radius: 25px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  border: 2px solid transparent;
+  position: relative;
+}
+
+.event-content::after {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: var(--primary-pink);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.event:nth-child(odd) .event-content::after {
+  right: -70px;
+}
+
+.event:nth-child(even) .event-content::after {
+  left: -70px;
+}
+
+.event-content:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(255, 77, 136, 0.25);
+  border-color: var(--primary-pink);
+}
+
+.event h3 {
+  color: var(--primary-pink);
+  margin-bottom: 12px;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.event p {
+  color: var(--text-dark);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Responsive Timeline */
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 20px;
+  }
+
+  .event {
+    width: 100% !important;
+    padding-left: 80px !important;
+    padding-right: 0 !important;
+    text-align: left !important;
+  }
+
+  .event-content::after {
+    left: 0px !important;
+    right: auto !important;
+  }
+}
+
+/* ============================================
+   MESSAGES PAGE - LOVE LETTERS
+   ============================================ */
+
+.messages {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.messages-title {
+  color: var(--primary-pink);
+  margin-bottom: 80px;
+  font-size: 3rem;
+  text-align: center;
+  font-weight: 700;
+  animation: slideDown 0.6s ease-out;
+  text-shadow: 0 2px 4px rgba(255, 77, 136, 0.1);
+}
+
+/* Love Letters Container - Staggered Grid Layout */
+.love-letters-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  perspective: 1000px;
+}
+
+/* Individual Love Letter */
+.love-letter {
+  position: relative;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform: rotate(var(--rotation));
+  animation: slideUp 0.6s ease-out forwards;
+  animation-delay: var(--delay);
+  opacity: 0;
+  
+  /* Stagger and slight overlap effect */
+  margin-bottom: 20px;
+}
+
+/* Subtle hover lift with enhanced shadow */
+.love-letter:hover {
+  transform: rotate(0deg) translateY(-20px) scale(1.05);
+  filter: drop-shadow(0 20px 40px rgba(255, 77, 136, 0.3));
+}
+
+/* Love Letter Content - Paper Sheet Design */
+.letter-content {
+  background: linear-gradient(135deg, #fdfbf8 0%, #ffeaf3 100%);
+  padding: 45px 35px;
+  border-radius: 12px;
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.07),
+    0 10px 20px rgba(255, 77, 136, 0.15),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 1px 0 rgba(0, 0, 0, 0.02);
+  position: relative;
+  border: 1px solid rgba(255, 182, 213, 0.3);
+  transition: all 0.4s ease;
+  
+  /* Paper texture effect */
+  background-image: 
+    linear-gradient(135deg, #fdfbf8 0%, #ffeaf3 100%),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 1px,
+      rgba(255, 182, 213, 0.02) 1px,
+      rgba(255, 182, 213, 0.02) 2px
+    );
+  background-blend-mode: overlay;
+}
+
+.love-letter:hover .letter-content {
+  box-shadow: 
+    0 8px 16px rgba(0, 0, 0, 0.1),
+    0 20px 40px rgba(255, 77, 136, 0.25),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.5);
+  border-color: rgba(255, 77, 136, 0.5);
+}
+
+/* Letter Header with Emoji Icon */
+.letter-header {
+  text-align: center;
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(255, 182, 213, 0.3);
+}
+
+.emoji-icon {
+  font-size: 3rem;
+  display: inline-block;
+  animation: floatEmoji 3s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.love-letter:hover .emoji-icon {
+  transform: scale(1.2) rotate(10deg);
+  animation: none;
+}
+
+@keyframes floatEmoji {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Letter Text - Main Message */
+.letter-text {
+  color: var(--text-dark);
+  font-size: 1.2rem;
+  line-height: 1.8;
+  font-family: 'Dancing Script', 'Comic Neue', cursive;
+  font-weight: 400;
+  text-align: center;
+  margin: 0;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.love-letter:hover .letter-text {
+  color: var(--primary-pink);
+  font-size: 1.25rem;
+}
+
+/* Letter Footer with Decorative Line */
+.letter-footer {
+  text-align: center;
+  margin-top: 25px;
+  padding-top: 20px;
+}
+
+.decorative-line {
+  display: inline-block;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ffb6d5, transparent);
+  border-radius: 1px;
+  transition: width 0.3s ease;
+}
+
+.love-letter:hover .decorative-line {
+  width: 100px;
+  background: linear-gradient(90deg, transparent, #ff4d88, transparent);
+}
+
+/* Floating Heart Emoji on Letter */
+.floating-heart {
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  font-size: 1.5rem;
+  opacity: 0;
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+
+.love-letter:hover .floating-heart {
+  opacity: 1;
+  animation: floatHeart 0.6s ease-out forwards;
+}
+
+@keyframes floatHeart {
+  0% {
+    opacity: 1;
+    transform: translateY(0px) scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-15px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.6) rotate(15deg);
+  }
+}
+
+/* Individual floating heart delays */
+.heart-1 { animation-delay: 0s; }
+.heart-2 { animation-delay: 0.1s; }
+.heart-3 { animation-delay: 0.2s; }
+.heart-4 { animation-delay: 0.3s; }
+.heart-5 { animation-delay: 0.4s; }
+.heart-6 { animation-delay: 0.5s; }
+
+/* Love Letter Click Animation - Pop Effect */
+.love-letter:active {
+  transform: rotate(var(--rotation)) scale(0.98);
+}
+
+/* Rainbow gradient variation for different letters */
+.love-letter:nth-child(1) .letter-content {
+  background: linear-gradient(135deg, #fdfbf8 0%, #fff0f5 100%);
+}
+
+.love-letter:nth-child(2) .letter-content {
+  background: linear-gradient(135deg, #fff5f0 0%, #ffeaf3 100%);
+}
+
+.love-letter:nth-child(3) .letter-content {
+  background: linear-gradient(135deg, #fdf8fb 0%, #ffebf0 100%);
+}
+
+.love-letter:nth-child(4) .letter-content {
+  background: linear-gradient(135deg, #fdfbf8 0%, #fff2f7 100%);
+}
+
+.love-letter:nth-child(5) .letter-content {
+  background: linear-gradient(135deg, #fff0f7 0%, #ffeaf3 100%);
+}
+
+.love-letter:nth-child(6) .letter-content {
+  background: linear-gradient(135deg, #fff5f0 0%, #ffebf5 100%);
+}
+
+/* Color accent for emoji icons - Multiple Pink Shades */
+.love-letter:nth-child(1) .emoji-icon { color: #ff4d88; }
+.love-letter:nth-child(2) .emoji-icon { color: #ffb6d5; }
+.love-letter:nth-child(3) .emoji-icon { color: #ff2f6f; }
+.love-letter:nth-child(4) .emoji-icon { color: #ffd6e8; }
+.love-letter:nth-child(5) .emoji-icon { color: #ff6b9d; }
+.love-letter:nth-child(6) .emoji-icon { color: #ff85b3; }
+
+/* ============================================
+   MESSAGES PAGE - RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+  .messages {
+    padding: 60px 15px;
+  }
+
+  .messages-title {
+    font-size: 2.2rem;
+    margin-bottom: 60px;
+  }
+
+  .love-letters-container {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+
+  .letter-content {
+    padding: 35px 25px;
+  }
+
+  .letter-text {
+    font-size: 1.1rem;
+  }
+
+  .emoji-icon {
+    font-size: 2.5rem;
+  }
+
+  .love-letter:hover {
+    transform: rotate(0deg) translateY(-15px) scale(1.02);
+  }
+}
+
+@media (max-width: 480px) {
+  .messages {
+    padding: 40px 15px;
+  }
+
+  .messages-title {
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+  }
+
+  .love-letters-container {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .letter-content {
+    padding: 30px 20px;
+    border-radius: 10px;
+  }
+
+  .letter-header {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+  }
+
+  .letter-text {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .emoji-icon {
+    font-size: 2rem;
+  }
+
+  .decorative-line {
+    width: 50px;
+  }
+
+  .love-letter:hover .decorative-line {
+    width: 80px;
+  }
+
+  .love-letter:hover {
+    transform: rotate(0deg) translateY(-10px) scale(1.01);
+  }
+}
+
+/* ============================================
+   LEGACY CARD STYLES (Kept for compatibility)
+   ============================================ */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: linear-gradient(135deg, #fff0f5, #ffeaf3);
+  padding: 40px 25px;
+  border-radius: 30px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+.card:nth-child(4) { animation-delay: 0.4s; }
+.card:nth-child(5) { animation-delay: 0.5s; }
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 77, 136, 0.1) 0%, transparent 70%);
+  transition: var(--transition);
+  transform: scale(0);
+}
+
+.card:hover::before {
+  transform: scale(1);
+}
+
+.card:hover {
+  transform: translateY(-15px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(255, 77, 136, 0.2);
+  border-color: var(--primary-pink);
+  background: linear-gradient(135deg, #ffeaf3, #fff0f5);
+}
+
+.card p {
+  position: relative;
+  z-index: 2;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+/* ============================================
+   GALLERY PAGE - POLAROID STYLE
+   ============================================ */
+
+.gallery {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery h1 {
+  color: var(--primary-pink);
+  margin-bottom: 60px;
+  font-size: 2.8rem;
+  text-align: center;
+  font-weight: 700;
+  animation: slideDown 0.6s ease-out;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  justify-items: center;
+  padding: 30px 0;
+}
+
+/* Polaroid Frame Styling */
+.polaroid-frame {
+  background: white;
+  padding: 12px;
+  border-radius: 3px;
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.1),
+    0 8px 16px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+              box-shadow 0.3s ease-out;
+  transform: perspective(800px) rotateY(0deg) rotateX(0deg);
+  opacity: 0;
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+.polaroid-frame:nth-child(1) { animation-delay: 0.1s; }
+.polaroid-frame:nth-child(2) { animation-delay: 0.2s; }
+.polaroid-frame:nth-child(3) { animation-delay: 0.3s; }
+.polaroid-frame:nth-child(4) { animation-delay: 0.4s; }
+.polaroid-frame:nth-child(5) { animation-delay: 0.5s; }
+.polaroid-frame:nth-child(6) { animation-delay: 0.6s; }
+
+.polaroid-image {
+  position: relative;
+  overflow: hidden;
+  height: 220px;
+  margin-bottom: 15px;
+  border-radius: 2px;
+}
+
+.polaroid-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease-out;
+  display: block;
+}
+
+.polaroid-frame:hover .polaroid-image img {
+  transform: scale(1.08);
+}
+
+.polaroid-label {
+  font-family: var(--font-accent);
+  font-size: 0.95rem;
+  text-align: left;
+  color: var(--text-dark);
+  padding: 0 5px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.polaroid-frame:hover {
+  transform: perspective(800px) rotateY(-5deg) rotateX(3deg) translateY(-15px);
+  box-shadow: 
+    0 8px 16px rgba(255, 77, 136, 0.15),
+    0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* ============================================
+   SURPRISE PAGE - GIFT BOX (IMPROVED)
+   ============================================ */
+
+.surprise {
+  padding: 80px 20px;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, #fff5f9 0%, #ffe4f0 100%);
+}
+
+.surprise h1 {
+  color: var(--primary-pink);
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+  animation: slideDown 0.6s ease-out;
+  text-shadow: 2px 2px 4px rgba(255, 77, 136, 0.1);
+}
+
+.surprise-subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 60px;
+  animation: slideUp 0.6s ease-out 0.2s both;
+  font-weight: 500;
+}
+
+.surprise-box-container {
+  margin: 40px 0 60px 0;
+  animation: slideUp 0.6s ease-out 0.3s both;
+}
+
+.gift-box {
+  perspective: 1000px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.gift-box-front {
+  font-size: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  animation: pulse 2s infinite;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.gift-box:hover .gift-box-front {
+  transform: scale(1.15) rotateY(-10deg) rotateX(5deg);
+  animation: none;
+  filter: drop-shadow(0 15px 30px rgba(255, 77, 136, 0.3));
+}
+
+.gift-box:active .gift-box-front {
+  transform: scale(0.9) rotateY(-10deg) rotateX(5deg);
+}
+
+.ribbon {
+  position: absolute;
+  width: 20px;
+  height: 140px;
+  background: linear-gradient(90deg, #ff1493, #ff69b4);
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.9;
+}
+
+.bow {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 20px solid #ff1493;
+  opacity: 0.8;
+}
+
+.bow::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: -20px;
+  width: 40px;
+  height: 15px;
+  background: #ff69b4;
+  border-radius: 50%;
+}
+
+.box-emoji {
+  position: relative;
+  z-index: 10;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.hidden-message {
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.8) translateY(30px);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+}
+
+.hidden-message.show {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  pointer-events: auto;
+}
+
+.message-content {
+  background: linear-gradient(135deg, #fdfbf8 0%, #ffeaf3 100%);
+  padding: 50px 40px;
+  border-radius: 20px;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.1),
+    0 0 60px rgba(255, 77, 136, 0.15);
+  max-width: 500px;
+  border: 2px solid rgba(255, 77, 136, 0.2);
+}
+
+.hidden-message h2 {
+  color: var(--primary-pink);
+  font-size: 2.3rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.hidden-message p {
+  color: var(--text-dark);
+  line-height: 1.8;
+  margin: 12px 0;
+}
+
+.hidden-message p:first-of-type {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--primary-pink);
+}
+
+.message-text {
+  font-size: 1.1rem;
+  font-style: italic;
+}
+
+.heart-decoration {
+  font-size: 2rem;
+  margin-top: 25px;
+  animation: pulse 1.5s infinite;
+  letter-spacing: 10px;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 20px;
+  }
+
+  nav ul {
+    gap: 15px;
+    justify-content: center;
+  }
+
+  nav a {
+    font-size: 0.85rem;
+  }
+
+  .hero {
+    padding: 60px 20px;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+  }
+
+  .button-container {
+    gap: 20px;
+  }
+
+  .btn-yes, .btn-no {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+
+  .story h1,
+  .messages h1,
+  .gallery h1,
+  .surprise h1 {
+    font-size: 2rem;
+  }
+
+  .story {
+    padding: 60px 20px;
+  }
+
+  .messages {
+    padding: 60px 20px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery {
+    padding: 60px 20px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+  }
+
+  .polaroid-frame {
+    transform: perspective(800px) rotateY(0deg) rotateX(0deg);
+  }
+
+  .polaroid-image {
+    height: 180px;
+  }
+
+  .surprise {
+    padding: 60px 20px;
+  }
+
+  .gift-box-front {
+    font-size: 100px;
+  }
+
+  .surprise h1 {
+    font-size: 2.2rem;
+  }
+
+  .message-content {
+    padding: 40px 30px;
+    max-width: 90%;
+  }
+
+  .hidden-message h2 {
+    font-size: 1.8rem;
+  }
+
+  .hidden-message p {
+    font-size: 1rem;
+  }
+
+  .event:nth-child(odd),
+  .event:nth-child(even) {
+    width: 100% !important;
+    padding-left: 60px !important;
+    padding-right: 0 !important;
+    text-align: left !important;
+  }
+
+  .timeline::before {
+    left: 15px;
+  }
+
+  .event-content::after {
+    left: -30px !important;
+    right: auto !important;
+  }
+}
+
+@media (max-width: 480px) {
+  nav h2 {
+    font-size: 1.3rem;
+  }
+
+  nav ul {
+    gap: 10px;
+    flex-direction: column;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .button-container {
+    gap: 10px;
+  }
+
+  .btn-yes, .btn-no {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .story h1,
+  .messages h1,
+  .gallery h1,
+  .surprise h1 {
+    font-size: 1.5rem;
+  }
+
+  .card {
+    padding: 25px 15px;
+    font-size: 0.95rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .polaroid-frame {
+    max-width: 100%;
+  }
+
+  .polaroid-image {
+    height: 200px;
+  }
+
+  .gift-box-front {
+    font-size: 80px;
+  }
+
+  .ribbon {
+    height: 100px;
+  }
+
+  .bow {
+    top: -8px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 15px solid #ff1493;
+  }
+
+  .bow::after {
+    top: 3px;
+    left: -15px;
+    width: 30px;
+    height: 12px;
+  }
+
+  .message-content {
+    padding: 35px 20px;
+    border-radius: 15px;
+  }
+
+  .hidden-message h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+
+  .hidden-message p {
+    font-size: 0.95rem;
+  }
+
+  .heart-decoration {
+    font-size: 1.5rem;
+    letter-spacing: 5px;
+    margin-top: 15px;
+  }
+
+  .surprise-subtitle {
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+}
