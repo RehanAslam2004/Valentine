@@ -28,22 +28,29 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // No Button - Shrinks each click
+  // No Button - playful evasive behavior + shrink each click
   if (noBtn) {
+    noBtn.addEventListener('mouseenter', function() {
+      if (window.innerWidth < 700) return;
+      const maxX = Math.min(120, window.innerWidth * 0.12);
+      const maxY = 40;
+      const randomX = (Math.random() * maxX) - (maxX / 2);
+      const randomY = (Math.random() * maxY) - (maxY / 2);
+      noBtn.style.transform = `translate(${randomX}px, ${randomY}px) scale(${noScale})`;
+    });
+
     noBtn.addEventListener('click', function() {
       clickCount++;
-      noScale = Math.max(0.4, noScale - 0.15); // Minimum scale 0.4
+      noScale = Math.max(0.4, noScale - 0.12); // Minimum scale 0.4
       noBtn.style.transform = `scale(${noScale})`;
 
-      // Fun message after multiple clicks
-      if (clickCount === 3) {
-        alert('Why do you keep clicking? 😢');
-      } else if (clickCount === 5) {
-        alert('Please say YES! 🥺💕');
-      } else if (clickCount > 7) {
-        alert('Fine... the button disappeared! 😂');
-        noBtn.style.opacity = '0';
-        noBtn.style.pointerEvents = 'none';
+      if (clickCount === 2) {
+        alert('Aww no? maybe try YES 🥹');
+      } else if (clickCount === 4) {
+        alert('This button is getting shy now 💔');
+      } else if (clickCount > 6) {
+        noBtn.textContent = 'Okay okay 😅';
+        noBtn.style.opacity = '0.25';
       }
     });
   }
@@ -305,6 +312,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   if (daysCounter) {
+    daysCounter.textContent = '527';
     const startDate = new Date('2024-02-14T00:00:00');
     const today = new Date();
     const days = Math.max(1, Math.floor((today - startDate) / (1000 * 60 * 60 * 24)));

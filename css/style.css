@@ -1286,6 +1286,147 @@ nav a:hover::after {
 }
 
 
+/* ============================================
+   HOME PAGE REFINEMENT V2
+   ============================================ */
+
+.hero-v2 {
+  position: relative;
+  gap: 26px;
+  padding: 74px 20px;
+  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.8), transparent 45%),
+              radial-gradient(circle at 80% 70%, rgba(255, 180, 210, 0.35), transparent 45%);
+}
+
+.hero-card-v2 {
+  width: min(850px, 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 242, 249, 0.92));
+  border: 1px solid #ffd2e6;
+  box-shadow: 0 20px 50px rgba(255, 82, 143, 0.2);
+}
+
+.hero-v2 h1 {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 1.1;
+}
+
+.hero-subline {
+  max-width: 42ch;
+  margin: 0 auto 34px auto;
+  color: #7f3e5d;
+  font-weight: 500;
+}
+
+.floating-badge {
+  position: absolute;
+  background: #fff;
+  color: #d53f76;
+  border-radius: 999px;
+  padding: 10px 14px;
+  box-shadow: var(--shadow);
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.badge-1 { top: 92px; left: 8%; transform: rotate(-7deg); }
+.badge-2 { top: 130px; right: 10%; transform: rotate(8deg); }
+
+.cute-features-v2 {
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  align-items: stretch;
+}
+
+.reasons-list {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+  text-align: left;
+  color: #6a4f5b;
+  font-size: 0.96rem;
+}
+
+.reasons-list li::before {
+  content: '💖 ';
+}
+
+@media (max-width: 900px) {
+  .floating-badge { display: none; }
+  .cute-features-v2 { grid-template-columns: 1fr; }
+}
+
+/* Mobile polish for landing page */
+@media (max-width: 768px) {
+  nav {
+    padding: 12px 14px;
+  }
+
+  nav h2 {
+    width: 100%;
+    text-align: center;
+    font-size: 1.45rem;
+  }
+
+  nav ul {
+    width: 100%;
+    justify-content: center;
+    gap: 10px 14px;
+  }
+
+  nav a {
+    font-size: 0.88rem;
+  }
+
+  .hero-v2 {
+    padding: 42px 14px;
+    min-height: auto;
+  }
+
+  .hero-card-v2 {
+    border-radius: 22px;
+    padding: 22px 14px;
+  }
+
+  .hero-subline {
+    font-size: 1rem;
+    margin-bottom: 22px;
+  }
+
+  .button-container {
+    gap: 12px;
+  }
+
+  .btn-yes,
+  .btn-no,
+  .btn-soft {
+    width: 100%;
+  }
+
+  .hero-mini-stats {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .stat-pill {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 420px) {
+  nav ul {
+    gap: 8px 10px;
+  }
+
+  .hero-v2 h1 {
+    font-size: 1.8rem;
+  }
+
+  .feature-card {
+    padding: 18px 14px;
+  }
+
+  .reasons-list {
+    font-size: 0.92rem;
+  }
 @media (max-width: 900px) {
   .hero h1 {
     font-size: 2.7rem;
