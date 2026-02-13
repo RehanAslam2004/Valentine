@@ -1427,4 +1427,44 @@ nav a:hover::after {
   .reasons-list {
     font-size: 0.92rem;
   }
+@media (max-width: 900px) {
+  .hero h1 {
+    font-size: 2.7rem;
+  }
+
+  .cute-features {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  nav {
+    padding: 14px 18px;
+    gap: 10px;
+  }
+
+  nav ul {
+    gap: 16px;
+  }
+
+  .hero {
+    padding: 50px 14px;
+  }
+
+  .hero-card {
+    padding: 26px 16px;
+  }
+
+  .hero h1 {
+    font-size: 2.1rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+    margin-bottom: 32px;
+  }
+
+  .btn-yes, .btn-no {
+    width: 100%;
+  }
 }
