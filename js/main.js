@@ -28,22 +28,29 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // No Button - Shrinks each click
+  // No Button - playful evasive behavior + shrink each click
   if (noBtn) {
+    noBtn.addEventListener('mouseenter', function() {
+      if (window.innerWidth < 700) return;
+      const maxX = Math.min(120, window.innerWidth * 0.12);
+      const maxY = 40;
+      const randomX = (Math.random() * maxX) - (maxX / 2);
+      const randomY = (Math.random() * maxY) - (maxY / 2);
+      noBtn.style.transform = `translate(${randomX}px, ${randomY}px) scale(${noScale})`;
+    });
+
     noBtn.addEventListener('click', function() {
       clickCount++;
-      noScale = Math.max(0.4, noScale - 0.15); // Minimum scale 0.4
+      noScale = Math.max(0.4, noScale - 0.12); // Minimum scale 0.4
       noBtn.style.transform = `scale(${noScale})`;
 
-      // Fun message after multiple clicks
-      if (clickCount === 3) {
-        alert('Why do you keep clicking? 😢');
-      } else if (clickCount === 5) {
-        alert('Please say YES! 🥺💕');
-      } else if (clickCount > 7) {
-        alert('Fine... the button disappeared! 😂');
-        noBtn.style.opacity = '0';
-        noBtn.style.pointerEvents = 'none';
+      if (clickCount === 2) {
+        alert('Aww no? maybe try YES 🥹');
+      } else if (clickCount === 4) {
+        alert('This button is getting shy now 💔');
+      } else if (clickCount > 6) {
+        noBtn.textContent = 'Okay okay 😅';
+        noBtn.style.opacity = '0.25';
       }
     });
   }
@@ -176,7 +183,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
-  const galleryItems = document.querySelectorAll('.gallery-item');
+  const galleryItems = document.querySelectorAll('.gallery-item, .polaroid-frame');
   
   galleryItems.forEach((item, index) => {
     item.addEventListener('click', function() {
@@ -260,3 +267,54 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
+
+
+// ============================================
+// HOME PAGE - CUTE EXTRA FEATURES
+// ============================================
+
+document.addEventListener('DOMContentLoaded', function() {
+  const complimentBtn = document.getElementById('complimentBtn');
+  const complimentText = document.getElementById('complimentText');
+  const dateIdeaBtn = document.getElementById('dateIdeaBtn');
+  const dateIdeaText = document.getElementById('dateIdeaText');
+  const daysCounter = document.getElementById('daysCounter');
+
+  const compliments = [
+    'You make ordinary days feel like a fairy tale. ✨',
+    'Your smile is my favorite sunrise. 🌅',
+    'Being with you feels like home and adventure at once. 💕',
+    'You are the prettiest chapter in my life story. 📖💖',
+    'Your laugh is honestly my favorite song. 🎶'
+  ];
+
+  const dateIdeas = [
+    'Make hot chocolate and watch a cozy movie night. ☕🎬',
+    'Take sunset photos and pick the cutest one together. 🌇📸',
+    'Cook a simple dessert together and rate it like judges. 🍰',
+    'Write tiny notes for each other and exchange them. 💌',
+    'Go on a mini walk and share your dream travel list. 🚶‍♀️🌍'
+  ];
+
+  if (complimentBtn && complimentText) {
+    complimentBtn.addEventListener('click', function() {
+      const compliment = compliments[Math.floor(Math.random() * compliments.length)];
+      complimentText.textContent = compliment;
+      createHearts();
+    });
+  }
+
+  if (dateIdeaBtn && dateIdeaText) {
+    dateIdeaBtn.addEventListener('click', function() {
+      const idea = dateIdeas[Math.floor(Math.random() * dateIdeas.length)];
+      dateIdeaText.textContent = idea;
+    });
+  }
+
+  if (daysCounter) {
+    const startDate = new Date('2024-02-14T00:00:00');
+    const today = new Date();
+    const days = Math.max(1, Math.floor((today - startDate) / (1000 * 60 * 60 * 24)));
+    daysCounter.textContent = days;
+  }
+});

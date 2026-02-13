@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
   <nav>
     <h2>💗 Valentine</h2>
     <ul>
@@ -22,19 +21,51 @@
     </ul>
   </nav>
 
-  <section class="hero">
-    <h1>Will You Be My Valentine?</h1>
-    <p>💕 Please say yes 💕</p>
-    
-    <div class="button-container">
-      <button id="yesBtn" class="btn-yes">Yes ❤️</button>
-      <button id="noBtn" class="btn-no">No ❌</button>
+  <section class="hero hero-v2">
+    <div class="floating-badge badge-1">sweetest smile ✨</div>
+    <div class="floating-badge badge-2">forever us 💞</div>
+
+    <div class="hero-card hero-card-v2">
+      <p class="hero-tag">Made only for you 💌</p>
+      <h1>Will You Be My Valentine?</h1>
+      <p class="hero-subline">You are my favorite person, my safe place, and my biggest blessing.</p>
+
+      <div class="button-container">
+        <button id="yesBtn" class="btn-yes">Yes, of course ❤️</button>
+        <button id="noBtn" class="btn-no">No ❌</button>
+      </div>
+
+      <div class="hero-mini-stats">
+        <div class="stat-pill"><span class="stat-emoji">💞</span> Love Meter: <strong id="loveMeter">100%</strong></div>
+        <div class="stat-pill"><span class="stat-emoji">📅</span> Together for <strong id="daysCounter">0</strong> days</div>
+      </div>
+    </div>
+
+    <div class="cute-features cute-features-v2">
+      <article class="feature-card">
+        <h3>Love Compliment Generator 🌸</h3>
+        <p id="complimentText">Tap to get a random line just for your person.</p>
+        <button id="complimentBtn" class="btn-soft">Give me one ✨</button>
+      </article>
+
+      <article class="feature-card">
+        <h3>Mini Date Idea Jar 🎀</h3>
+        <p id="dateIdeaText">Need a plan? Pick a cute little date idea instantly.</p>
+        <button id="dateIdeaBtn" class="btn-soft">Pick an idea 🎲</button>
+      </article>
+
+      <article class="feature-card">
+        <h3>Reasons I Adore You 🫶</h3>
+        <ul class="reasons-list">
+          <li>Your smile fixes my whole day.</li>
+          <li>You make life feel soft and exciting.</li>
+          <li>With you, everything feels like home.</li>
+        </ul>
+      </article>
     </div>
   </section>
 
-  <!-- Floating hearts container -->
   <div id="hearts-container"></div>
-
-<script src="js/main.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
