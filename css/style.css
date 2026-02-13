@@ -1286,48 +1286,6 @@ nav a:hover::after {
 }
 
 
-@media (max-width: 900px) {
-  .hero h1 {
-    font-size: 2.7rem;
-  }
-
-  .cute-features {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 600px) {
-  nav {
-    padding: 14px 18px;
-    gap: 10px;
-  }
-
-  nav ul {
-    gap: 16px;
-  }
-
-  .hero {
-    padding: 50px 14px;
-  }
-
-  .hero-card {
-    padding: 26px 16px;
-  }
-
-  .hero h1 {
-    font-size: 2.1rem;
-  }
-
-  .hero p {
-    font-size: 1.1rem;
-    margin-bottom: 32px;
-  }
-
-  .btn-yes, .btn-no {
-    width: 100%;
-  }
-}
-
 /* ============================================
    HOME PAGE REFINEMENT V2
    ============================================ */
@@ -1394,22 +1352,6 @@ nav a:hover::after {
 @media (max-width: 900px) {
   .floating-badge { display: none; }
   .cute-features-v2 { grid-template-columns: 1fr; }
-}
-
-@media (max-width: 540px) {
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  nav ul {
-    flex-direction: row;
-    gap: 12px;
-  }
-
-  .hero-v2 {
-    padding-top: 46px;
-  }
 }
 
 /* Mobile polish for landing page */
