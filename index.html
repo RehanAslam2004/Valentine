@@ -23,16 +23,43 @@
   </nav>
 
   <section class="hero">
-    <h1>Will You Be My Valentine?</h1>
-    <p>💕 Please say yes 💕</p>
-    
-    <div class="button-container">
-      <button id="yesBtn" class="btn-yes">Yes ❤️</button>
-      <button id="noBtn" class="btn-no">No ❌</button>
+    <div class="hero-card">
+      <p class="hero-tag">Made with endless love 💘</p>
+      <h1>Will You Be My Valentine?</h1>
+      <p>💕 Every heartbeat says your name. Please say yes. 💕</p>
+
+      <div class="button-container">
+        <button id="yesBtn" class="btn-yes">Yes, Always ❤️</button>
+        <button id="noBtn" class="btn-no">No ❌</button>
+      </div>
+
+      <div class="hero-mini-stats">
+        <div class="stat-pill">
+          <span class="stat-emoji">💞</span>
+          <span>Love Meter: <strong id="loveMeter">100%</strong></span>
+        </div>
+        <div class="stat-pill">
+          <span class="stat-emoji">📅</span>
+          <span>Together for <strong id="daysCounter">0</strong> days</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cute-features">
+      <div class="feature-card">
+        <h3>Random Love Compliment 🌸</h3>
+        <p id="complimentText">Click below for a sweet line made for you.</p>
+        <button id="complimentBtn" class="btn-soft">Give me one ✨</button>
+      </div>
+
+      <div class="feature-card">
+        <h3>Mini Date Idea Jar 🫶</h3>
+        <p id="dateIdeaText">Let's pick a cute little plan together.</p>
+        <button id="dateIdeaBtn" class="btn-soft">Pick an idea 🎲</button>
+      </div>
     </div>
   </section>
 
-  <!-- Floating hearts container -->
   <div id="hearts-container"></div>
 
 <script src="js/main.js"></script>
