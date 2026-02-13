@@ -1411,3 +1411,78 @@ nav a:hover::after {
     padding-top: 46px;
   }
 }
+
+/* Mobile polish for landing page */
+@media (max-width: 768px) {
+  nav {
+    padding: 12px 14px;
+  }
+
+  nav h2 {
+    width: 100%;
+    text-align: center;
+    font-size: 1.45rem;
+  }
+
+  nav ul {
+    width: 100%;
+    justify-content: center;
+    gap: 10px 14px;
+  }
+
+  nav a {
+    font-size: 0.88rem;
+  }
+
+  .hero-v2 {
+    padding: 42px 14px;
+    min-height: auto;
+  }
+
+  .hero-card-v2 {
+    border-radius: 22px;
+    padding: 22px 14px;
+  }
+
+  .hero-subline {
+    font-size: 1rem;
+    margin-bottom: 22px;
+  }
+
+  .button-container {
+    gap: 12px;
+  }
+
+  .btn-yes,
+  .btn-no,
+  .btn-soft {
+    width: 100%;
+  }
+
+  .hero-mini-stats {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .stat-pill {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 420px) {
+  nav ul {
+    gap: 8px 10px;
+  }
+
+  .hero-v2 h1 {
+    font-size: 1.8rem;
+  }
+
+  .feature-card {
+    padding: 18px 14px;
+  }
+
+  .reasons-list {
+    font-size: 0.92rem;
+  }
+}

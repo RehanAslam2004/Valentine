@@ -312,9 +312,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   if (daysCounter) {
-    const startDate = new Date('2024-02-14T00:00:00');
-    const today = new Date();
-    const days = Math.max(1, Math.floor((today - startDate) / (1000 * 60 * 60 * 24)));
-    daysCounter.textContent = days;
+    daysCounter.textContent = '527';
   }
 });
