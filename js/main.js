@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
-  const galleryItems = document.querySelectorAll('.gallery-item');
+  const galleryItems = document.querySelectorAll('.gallery-item, .polaroid-frame');
   
   galleryItems.forEach((item, index) => {
     item.addEventListener('click', function() {
@@ -260,3 +260,54 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
+
+
+// ============================================
+// HOME PAGE - CUTE EXTRA FEATURES
+// ============================================
+
+document.addEventListener('DOMContentLoaded', function() {
+  const complimentBtn = document.getElementById('complimentBtn');
+  const complimentText = document.getElementById('complimentText');
+  const dateIdeaBtn = document.getElementById('dateIdeaBtn');
+  const dateIdeaText = document.getElementById('dateIdeaText');
+  const daysCounter = document.getElementById('daysCounter');
+
+  const compliments = [
+    'You make ordinary days feel like a fairy tale. ✨',
+    'Your smile is my favorite sunrise. 🌅',
+    'Being with you feels like home and adventure at once. 💕',
+    'You are the prettiest chapter in my life story. 📖💖',
+    'Your laugh is honestly my favorite song. 🎶'
+  ];
+
+  const dateIdeas = [
+    'Make hot chocolate and watch a cozy movie night. ☕🎬',
+    'Take sunset photos and pick the cutest one together. 🌇📸',
+    'Cook a simple dessert together and rate it like judges. 🍰',
+    'Write tiny notes for each other and exchange them. 💌',
+    'Go on a mini walk and share your dream travel list. 🚶‍♀️🌍'
+  ];
+
+  if (complimentBtn && complimentText) {
+    complimentBtn.addEventListener('click', function() {
+      const compliment = compliments[Math.floor(Math.random() * compliments.length)];
+      complimentText.textContent = compliment;
+      createHearts();
+    });
+  }
+
+  if (dateIdeaBtn && dateIdeaText) {
+    dateIdeaBtn.addEventListener('click', function() {
+      const idea = dateIdeas[Math.floor(Math.random() * dateIdeas.length)];
+      dateIdeaText.textContent = idea;
+    });
+  }
+
+  if (daysCounter) {
+    const startDate = new Date('2024-02-14T00:00:00');
+    const today = new Date();
+    const days = Math.max(1, Math.floor((today - startDate) / (1000 * 60 * 60 * 24)));
+    daysCounter.textContent = days;
+  }
+});
