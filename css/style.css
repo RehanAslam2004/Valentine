@@ -60,26 +60,34 @@ nav {
   background: linear-gradient(90deg, #ff4d88, #ffb6d5);
   display: flex;
   justify-content: space-between;
-  padding: 15px 40px;
   align-items: center;
+  padding: 12px 20px;
   box-shadow: var(--shadow);
   position: sticky;
   top: 0;
   z-index: 100;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 nav h2 {
   color: var(--white);
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: 1px;
+  margin: 0;
+  flex-shrink: 0;
 }
 
 nav ul {
   display: flex;
   list-style: none;
-  gap: 30px;
+  gap: 20px;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
 nav a {
@@ -88,7 +96,8 @@ nav a {
   font-weight: 600;
   transition: var(--transition);
   position: relative;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  white-space: nowrap;
 }
 
 nav a::after {
@@ -107,47 +116,79 @@ nav a:hover::after {
 }
 
 /* ============================================
-   HOME PAGE - HERO SECTION
+   FLOATING BADGES - HOME PAGE
    ============================================ */
+
+.floating-badge {
+  position: absolute;
+  background: #fff;
+  color: #d53f76;
+  border-radius: 999px;
+  padding: 10px 14px;
+  box-shadow: var(--shadow);
+  font-weight: 600;
+  font-size: 0.92rem;
+  top: 50px;
+  z-index: 5;
+}
+
+.badge-1 {
+  left: 5%;
+  transform: rotate(-7deg);
+}
+
+.badge-2 {
+  right: 5%;
+  transform: rotate(8deg);
+}
+
+@media (max-width: 900px) {
+  .floating-badge {
+    display: none;
+  }
+}
 
 .hero {
   text-align: center;
-  padding: 100px 20px;
-  min-height: 80vh;
+  padding: 60px 15px;
+  min-height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 30px;
 }
 
 .hero h1 {
-  font-size: 3.5rem;
+  font-size: clamp(1.8rem, 5vw, 3.5rem);
   color: var(--primary-pink);
-  margin-bottom: 20px;
+  margin: 0;
   font-weight: 700;
   letter-spacing: 1px;
   animation: slideDown 0.6s ease-out;
 }
 
 .hero p {
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
   color: var(--primary-pink);
-  margin-bottom: 50px;
+  margin: 0;
   animation: slideUp 0.6s ease-out 0.2s both;
   font-style: italic;
 }
 
 .button-container {
   display: flex;
-  gap: 30px;
+  gap: 15px;
   justify-content: center;
   flex-wrap: wrap;
   animation: slideUp 0.6s ease-out 0.4s both;
+  width: 100%;
+  max-width: 600px;
 }
 
 .btn-yes, .btn-no {
-  padding: 15px 35px;
-  font-size: 1.2rem;
+  padding: 12px 28px;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
   border: none;
   border-radius: 50px;
   cursor: pointer;
@@ -155,6 +196,8 @@ nav a:hover::after {
   transition: var(--transition);
   box-shadow: var(--shadow);
   font-family: var(--font-main);
+  flex: 1;
+  min-width: 140px;
 }
 
 .btn-yes {
@@ -163,12 +206,12 @@ nav a:hover::after {
 }
 
 .btn-yes:hover {
-  transform: scale(1.15);
+  transform: scale(1.08);
   box-shadow: 0 12px 30px rgba(255, 77, 136, 0.3);
 }
 
 .btn-yes:active {
-  transform: scale(1.2);
+  transform: scale(1.02);
 }
 
 .btn-no {
@@ -177,21 +220,21 @@ nav a:hover::after {
 }
 
 .btn-no:hover {
-  transform: scale(0.9);
+  transform: scale(0.95);
 }
 
 .btn-no:active {
-  transform: scale(0.85);
+  transform: scale(0.92);
 }
-
 
 .hero-card {
   background: rgba(255, 255, 255, 0.62);
   border: 1px solid rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(8px);
   border-radius: 32px;
-  padding: 38px 32px;
+  padding: 30px 20px;
   max-width: 760px;
+  width: 100%;
   box-shadow: 0 18px 45px rgba(255, 77, 136, 0.2);
 }
 
@@ -201,16 +244,16 @@ nav a:hover::after {
   border-radius: 999px;
   background: #ffe4f1;
   color: #d93b73;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 600;
   margin-bottom: 16px;
 }
 
 .hero-mini-stats {
-  margin-top: 22px;
+  margin-top: 20px;
   display: flex;
   justify-content: center;
-  gap: 14px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
@@ -218,59 +261,85 @@ nav a:hover::after {
   background: #fff;
   border: 1px solid #ffd3e5;
   border-radius: 999px;
-  padding: 10px 16px;
-  font-size: 0.95rem;
+  padding: 10px 14px;
+  font-size: 0.85rem;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+  white-space: nowrap;
 }
 
 .stat-emoji {
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .cute-features {
-  margin-top: 30px;
-  width: min(960px, 100%);
+  margin-top: 20px;
+  width: 100%;
+  max-width: 900px;
   display: grid;
-  grid-template-columns: repeat(2, minmax(240px, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  padding: 0;
 }
 
 .feature-card {
   background: linear-gradient(180deg, #fff8fc, #ffeef6);
   border: 1px solid #ffd4e7;
-  border-radius: 24px;
-  padding: 22px;
+  border-radius: 20px;
+  padding: 20px;
   box-shadow: var(--shadow);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .feature-card h3 {
   color: var(--primary-pink);
-  margin-bottom: 10px;
+  margin: 0;
+  font-size: clamp(1rem, 2vw, 1.2rem);
 }
 
 .feature-card p {
-  margin-bottom: 16px;
+  margin: 0;
   color: #5b4a52;
-  font-size: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 .btn-soft {
   border: none;
   border-radius: 999px;
-  padding: 11px 22px;
+  padding: 10px 20px;
   font-weight: 700;
   background: linear-gradient(135deg, #ff89b1, #ff5792);
   color: #fff;
   cursor: pointer;
   transition: var(--transition);
+  font-size: 0.9rem;
 }
 
 .btn-soft:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 18px rgba(255, 77, 136, 0.24);
+}
+
+.reasons-list {
+  list-style: none;
+  text-align: left;
+  color: #6a4f5b;
+  font-size: 0.9rem;
+  padding: 0;
+  margin: 0;
+}
+
+.reasons-list li {
+  margin: 6px 0;
+}
+
+.reasons-list li::before {
+  content: '💖 ';
 }
 
 /* Heart floating animation */
@@ -321,15 +390,15 @@ nav a:hover::after {
    ============================================ */
 
 .story {
-  padding: 80px 20px;
+  padding: 60px 15px;
   max-width: 900px;
   margin: 0 auto;
 }
 
 .story h1 {
   color: var(--primary-pink);
-  margin-bottom: 60px;
-  font-size: 2.8rem;
+  margin-bottom: 50px;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
   text-align: center;
   font-weight: 700;
   animation: slideDown 0.6s ease-out;
@@ -342,7 +411,7 @@ nav a:hover::after {
 .timeline::before {
   content: '';
   position: absolute;
-  left: 50%;
+  left: 20px;
   transform: translateX(-50%);
   width: 3px;
   height: 100%;
@@ -350,9 +419,15 @@ nav a:hover::after {
 }
 
 .event {
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   opacity: 0;
   animation: slideUp 0.6s ease-out forwards;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 80px;
+  padding-right: 0;
+  text-align: left;
+  width: 100%;
 }
 
 .event:nth-child(1) { animation-delay: 0.1s; }
@@ -360,26 +435,10 @@ nav a:hover::after {
 .event:nth-child(3) { animation-delay: 0.3s; }
 .event:nth-child(4) { animation-delay: 0.4s; }
 
-.event:nth-child(odd) {
-  margin-left: 0;
-  margin-right: auto;
-  padding-right: 60px;
-  width: 50%;
-  text-align: right;
-}
-
-.event:nth-child(even) {
-  margin-left: auto;
-  margin-right: 0;
-  padding-left: 60px;
-  width: 50%;
-  text-align: left;
-}
-
 .event-content {
   background: linear-gradient(135deg, #fff0f5, #fffbfc);
-  padding: 30px;
-  border-radius: 25px;
+  padding: 25px;
+  border-radius: 20px;
   box-shadow: var(--shadow);
   transition: var(--transition);
   border: 2px solid transparent;
@@ -393,16 +452,9 @@ nav a:hover::after {
   height: 15px;
   background: var(--primary-pink);
   border-radius: 50%;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.event:nth-child(odd) .event-content::after {
-  right: -70px;
-}
-
-.event:nth-child(even) .event-content::after {
+  top: 25px;
   left: -70px;
+  transform: translateY(-50%);
 }
 
 .event-content:hover {
@@ -413,15 +465,17 @@ nav a:hover::after {
 
 .event h3 {
   color: var(--primary-pink);
-  margin-bottom: 12px;
-  font-size: 1.5rem;
+  margin-bottom: 10px;
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
   font-weight: 700;
+  margin-top: 0;
 }
 
 .event p {
   color: var(--text-dark);
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1.6;
+  margin: 0;
 }
 
 /* Responsive Timeline */
@@ -448,16 +502,16 @@ nav a:hover::after {
    ============================================ */
 
 .messages {
-  padding: 80px 20px;
+  padding: 60px 15px;
   max-width: 1200px;
   margin: 0 auto;
-  min-height: 100vh;
+  min-height: auto;
 }
 
 .messages-title {
   color: var(--primary-pink);
-  margin-bottom: 80px;
-  font-size: 3rem;
+  margin-bottom: 50px;
+  font-size: clamp(1.8rem, 5vw, 3rem);
   text-align: center;
   font-weight: 700;
   animation: slideDown 0.6s ease-out;
@@ -467,8 +521,8 @@ nav a:hover::after {
 /* Love Letters Container - Staggered Grid Layout */
 .love-letters-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
   perspective: 1000px;
 }
 
@@ -481,21 +535,19 @@ nav a:hover::after {
   animation: slideUp 0.6s ease-out forwards;
   animation-delay: var(--delay);
   opacity: 0;
-  
-  /* Stagger and slight overlap effect */
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
 /* Subtle hover lift with enhanced shadow */
 .love-letter:hover {
-  transform: rotate(0deg) translateY(-20px) scale(1.05);
-  filter: drop-shadow(0 20px 40px rgba(255, 77, 136, 0.3));
+  transform: rotate(0deg) translateY(-15px) scale(1.02);
+  filter: drop-shadow(0 15px 30px rgba(255, 77, 136, 0.25));
 }
 
 /* Love Letter Content - Paper Sheet Design */
 .letter-content {
   background: linear-gradient(135deg, #fdfbf8 0%, #ffeaf3 100%);
-  padding: 45px 35px;
+  padding: 35px 25px;
   border-radius: 12px;
   box-shadow: 
     0 4px 6px rgba(0, 0, 0, 0.07),
@@ -506,7 +558,6 @@ nav a:hover::after {
   border: 1px solid rgba(255, 182, 213, 0.3);
   transition: all 0.4s ease;
   
-  /* Paper texture effect */
   background-image: 
     linear-gradient(135deg, #fdfbf8 0%, #ffeaf3 100%),
     repeating-linear-gradient(
@@ -530,20 +581,20 @@ nav a:hover::after {
 /* Letter Header with Emoji Icon */
 .letter-header {
   text-align: center;
-  margin-bottom: 25px;
-  padding-bottom: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
   border-bottom: 2px solid rgba(255, 182, 213, 0.3);
 }
 
 .emoji-icon {
-  font-size: 3rem;
+  font-size: 2.5rem;
   display: inline-block;
   animation: floatEmoji 3s ease-in-out infinite;
   transition: transform 0.3s ease;
 }
 
 .love-letter:hover .emoji-icon {
-  transform: scale(1.2) rotate(10deg);
+  transform: scale(1.15) rotate(10deg);
   animation: none;
 }
 
@@ -555,8 +606,8 @@ nav a:hover::after {
 /* Letter Text - Main Message */
 .letter-text {
   color: var(--text-dark);
-  font-size: 1.2rem;
-  line-height: 1.8;
+  font-size: 1.1rem;
+  line-height: 1.7;
   font-family: 'Dancing Script', 'Comic Neue', cursive;
   font-weight: 400;
   text-align: center;
@@ -567,19 +618,19 @@ nav a:hover::after {
 
 .love-letter:hover .letter-text {
   color: var(--primary-pink);
-  font-size: 1.25rem;
+  font-size: 1.15rem;
 }
 
 /* Letter Footer with Decorative Line */
 .letter-footer {
   text-align: center;
-  margin-top: 25px;
-  padding-top: 20px;
+  margin-top: 20px;
+  padding-top: 15px;
 }
 
 .decorative-line {
   display: inline-block;
-  width: 60px;
+  width: 50px;
   height: 2px;
   background: linear-gradient(90deg, transparent, #ffb6d5, transparent);
   border-radius: 1px;
@@ -587,7 +638,7 @@ nav a:hover::after {
 }
 
 .love-letter:hover .decorative-line {
-  width: 100px;
+  width: 80px;
   background: linear-gradient(90deg, transparent, #ff4d88, transparent);
 }
 
@@ -596,7 +647,7 @@ nav a:hover::after {
   position: absolute;
   top: -10px;
   right: 10px;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   opacity: 0;
   transition: all 0.4s ease;
   pointer-events: none;
@@ -818,15 +869,15 @@ nav a:hover::after {
    ============================================ */
 
 .gallery {
-  padding: 80px 20px;
+  padding: 60px 15px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .gallery h1 {
   color: var(--primary-pink);
-  margin-bottom: 60px;
-  font-size: 2.8rem;
+  margin-bottom: 50px;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
   text-align: center;
   font-weight: 700;
   animation: slideDown 0.6s ease-out;
@@ -834,16 +885,16 @@ nav a:hover::after {
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 25px;
   justify-items: center;
-  padding: 30px 0;
+  padding: 20px 0;
 }
 
 /* Polaroid Frame Styling */
 .polaroid-frame {
   background: white;
-  padding: 12px;
+  padding: 10px;
   border-radius: 3px;
   box-shadow: 
     0 4px 8px rgba(0, 0, 0, 0.1),
@@ -854,6 +905,8 @@ nav a:hover::after {
   transform: perspective(800px) rotateY(0deg) rotateX(0deg);
   opacity: 0;
   animation: slideUp 0.6s ease-out forwards;
+  width: 100%;
+  max-width: 240px;
 }
 
 .polaroid-frame:nth-child(1) { animation-delay: 0.1s; }
@@ -866,8 +919,8 @@ nav a:hover::after {
 .polaroid-image {
   position: relative;
   overflow: hidden;
-  height: 220px;
-  margin-bottom: 15px;
+  height: 200px;
+  margin-bottom: 12px;
   border-radius: 2px;
 }
 
@@ -885,11 +938,11 @@ nav a:hover::after {
 
 .polaroid-label {
   font-family: var(--font-accent);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   text-align: left;
   color: var(--text-dark);
   padding: 0 5px;
-  min-height: 40px;
+  min-height: 35px;
   display: flex;
   align-items: center;
   font-weight: 500;
@@ -897,7 +950,7 @@ nav a:hover::after {
 }
 
 .polaroid-frame:hover {
-  transform: perspective(800px) rotateY(-5deg) rotateX(3deg) translateY(-15px);
+  transform: perspective(800px) rotateY(-5deg) rotateX(3deg) translateY(-12px);
   box-shadow: 
     0 8px 16px rgba(255, 77, 136, 0.15),
     0 12px 24px rgba(0, 0, 0, 0.12);
@@ -908,35 +961,36 @@ nav a:hover::after {
    ============================================ */
 
 .surprise {
-  padding: 80px 20px;
-  min-height: 90vh;
+  padding: 60px 15px;
+  min-height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   background: linear-gradient(135deg, #fff5f9 0%, #ffe4f0 100%);
+  gap: 30px;
 }
 
 .surprise h1 {
   color: var(--primary-pink);
-  font-size: 2.8rem;
-  margin-bottom: 15px;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  margin: 0;
   font-weight: 700;
   animation: slideDown 0.6s ease-out;
   text-shadow: 2px 2px 4px rgba(255, 77, 136, 0.1);
 }
 
 .surprise-subtitle {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
   color: #666;
-  margin-bottom: 60px;
+  margin: 0;
   animation: slideUp 0.6s ease-out 0.2s both;
   font-weight: 500;
 }
 
 .surprise-box-container {
-  margin: 40px 0 60px 0;
+  margin: 20px 0;
   animation: slideUp 0.6s ease-out 0.3s both;
 }
 
@@ -944,10 +998,11 @@ nav a:hover::after {
   perspective: 1000px;
   cursor: pointer;
   display: inline-block;
+  position: relative;
 }
 
 .gift-box-front {
-  font-size: 140px;
+  font-size: clamp(80px, 20vw, 140px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -957,19 +1012,19 @@ nav a:hover::after {
 }
 
 .gift-box:hover .gift-box-front {
-  transform: scale(1.15) rotateY(-10deg) rotateX(5deg);
+  transform: scale(1.12) rotateY(-10deg) rotateX(5deg);
   animation: none;
   filter: drop-shadow(0 15px 30px rgba(255, 77, 136, 0.3));
 }
 
 .gift-box:active .gift-box-front {
-  transform: scale(0.9) rotateY(-10deg) rotateX(5deg);
+  transform: scale(0.92) rotateY(-10deg) rotateX(5deg);
 }
 
 .ribbon {
   position: absolute;
-  width: 20px;
-  height: 140px;
+  width: 15px;
+  height: clamp(80px, 20vw, 140px);
   background: linear-gradient(90deg, #ff1493, #ff69b4);
   left: 50%;
   transform: translateX(-50%);
@@ -978,24 +1033,24 @@ nav a:hover::after {
 
 .bow {
   position: absolute;
-  top: -10px;
+  top: -8px;
   left: 50%;
   transform: translateX(-50%);
   width: 0;
   height: 0;
-  border-left: 15px solid transparent;
-  border-right: 15px solid transparent;
-  border-bottom: 20px solid #ff1493;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 16px solid #ff1493;
   opacity: 0.8;
 }
 
 .bow::after {
   content: '';
   position: absolute;
-  top: 5px;
-  left: -20px;
-  width: 40px;
-  height: 15px;
+  top: 4px;
+  left: -18px;
+  width: 36px;
+  height: 12px;
   background: #ff69b4;
   border-radius: 50%;
 }
@@ -1007,7 +1062,7 @@ nav a:hover::after {
 }
 
 .hidden-message {
-  min-height: 300px;
+  min-height: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1015,6 +1070,8 @@ nav a:hover::after {
   transform: scale(0.8) translateY(30px);
   transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
   pointer-events: none;
+  width: 100%;
+  padding: 0 15px;
 }
 
 .hidden-message.show {
@@ -1025,208 +1082,405 @@ nav a:hover::after {
 
 .message-content {
   background: linear-gradient(135deg, #fdfbf8 0%, #ffeaf3 100%);
-  padding: 50px 40px;
-  border-radius: 20px;
+  padding: 35px 25px;
+  border-radius: 18px;
   box-shadow: 
     0 10px 30px rgba(0, 0, 0, 0.1),
     0 0 60px rgba(255, 77, 136, 0.15);
   max-width: 500px;
+  width: 100%;
   border: 2px solid rgba(255, 77, 136, 0.2);
 }
 
 .hidden-message h2 {
   color: var(--primary-pink);
-  font-size: 2.3rem;
-  margin-bottom: 20px;
+  font-size: clamp(1.5rem, 4vw, 2.3rem);
+  margin: 0 0 15px 0;
   font-weight: 700;
 }
 
 .hidden-message p {
   color: var(--text-dark);
-  line-height: 1.8;
-  margin: 12px 0;
+  line-height: 1.7;
+  margin: 10px 0;
+  font-size: 0.95rem;
 }
 
 .hidden-message p:first-of-type {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2vw, 1.15rem);
   font-weight: 600;
   color: var(--primary-pink);
 }
 
 .message-text {
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   font-style: italic;
 }
 
 .heart-decoration {
-  font-size: 2rem;
-  margin-top: 25px;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-top: 20px;
   animation: pulse 1.5s infinite;
-  letter-spacing: 10px;
+  letter-spacing: 8px;
 }
 
 /* ============================================
-   RESPONSIVE DESIGN
+   RESPONSIVE DESIGN - MEDIUM DEVICES (768px and below)
    ============================================ */
 
 @media (max-width: 768px) {
+  /* Navigation */
   nav {
-    flex-direction: column;
-    gap: 15px;
-    padding: 15px 20px;
+    padding: 12px 15px;
+    gap: 12px;
+  }
+
+  nav h2 {
+    font-size: 1.3rem;
+    flex-basis: 100%;
+    text-align: center;
+    margin-bottom: 5px;
   }
 
   nav ul {
-    gap: 15px;
-    justify-content: center;
+    flex-basis: 100%;
+    gap: 12px;
   }
 
   nav a {
     font-size: 0.85rem;
   }
 
+  /* Home Page */
   .hero {
-    padding: 60px 20px;
-  }
-
-  .hero h1 {
-    font-size: 2.5rem;
-  }
-
-  .hero p {
-    font-size: 1.2rem;
+    padding: 50px 15px;
+    gap: 25px;
   }
 
   .button-container {
-    gap: 20px;
+    width: 100%;
+    max-width: none;
   }
 
   .btn-yes, .btn-no {
-    padding: 12px 25px;
-    font-size: 1rem;
+    flex: 1;
+    min-width: 120px;
   }
 
-  .story h1,
-  .messages h1,
-  .gallery h1,
-  .surprise h1 {
-    font-size: 2rem;
+  .hero-card {
+    padding: 25px 18px;
   }
 
+  .cute-features {
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 12px;
+    max-width: none;
+  }
+
+  .feature-card {
+    padding: 18px;
+    gap: 10px;
+  }
+
+  .hero-mini-stats {
+    gap: 10px;
+    margin-top: 15px;
+  }
+
+  .stat-pill {
+    font-size: 0.8rem;
+    padding: 8px 12px;
+    gap: 5px;
+  }
+
+  /* Story Page */
   .story {
-    padding: 60px 20px;
+    padding: 50px 15px;
   }
 
-  .messages {
-    padding: 60px 20px;
-  }
-
-  .cards {
-    grid-template-columns: 1fr;
-  }
-
-  .gallery {
-    padding: 60px 20px;
-  }
-
-  .gallery-grid {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 30px;
-  }
-
-  .polaroid-frame {
-    transform: perspective(800px) rotateY(0deg) rotateX(0deg);
-  }
-
-  .polaroid-image {
-    height: 180px;
-  }
-
-  .surprise {
-    padding: 60px 20px;
-  }
-
-  .gift-box-front {
-    font-size: 100px;
-  }
-
-  .surprise h1 {
-    font-size: 2.2rem;
-  }
-
-  .message-content {
-    padding: 40px 30px;
-    max-width: 90%;
-  }
-
-  .hidden-message h2 {
-    font-size: 1.8rem;
-  }
-
-  .hidden-message p {
-    font-size: 1rem;
-  }
-
-  .event:nth-child(odd),
-  .event:nth-child(even) {
-    width: 100% !important;
-    padding-left: 60px !important;
-    padding-right: 0 !important;
-    text-align: left !important;
+  .event {
+    padding-left: 70px;
+    margin-bottom: 35px;
   }
 
   .timeline::before {
     left: 15px;
   }
 
-  .event-content::after {
-    left: -30px !important;
-    right: auto !important;
+  .event-content {
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .event h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+
+  .event p {
+    font-size: 0.9rem;
+  }
+
+  /* Messages Page */
+  .messages {
+    padding: 50px 15px;
+  }
+
+  .love-letters-container {
+    gap: 18px;
+  }
+
+  .letter-content {
+    padding: 28px 22px;
+  }
+
+  .emoji-icon {
+    font-size: 2.2rem;
+  }
+
+  .letter-text {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .letter-header {
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+  }
+
+  .letter-footer {
+    margin-top: 16px;
+    padding-top: 12px;
+  }
+
+  /* Gallery Page */
+  .gallery {
+    padding: 50px 15px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 18px;
+    padding: 15px 0;
+  }
+
+  .polaroid-frame {
+    max-width: 220px;
+  }
+
+  .polaroid-image {
+    height: 180px;
+    margin-bottom: 10px;
+  }
+
+  .polaroid-label {
+    font-size: 0.85rem;
+    min-height: 32px;
+  }
+
+  /* Surprise Page */
+  .surprise {
+    padding: 50px 15px;
+    gap: 25px;
+  }
+
+  .message-content {
+    padding: 30px 22px;
+  }
+
+  .hidden-message p {
+    font-size: 0.9rem;
   }
 }
 
+/* ============================================
+   RESPONSIVE DESIGN - SMALL DEVICES (480px and below)
+   ============================================ */
+
 @media (max-width: 480px) {
+  /* Navigation */
+  nav {
+    padding: 10px 12px;
+    gap: 10px;
+  }
+
   nav h2 {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
+    flex-basis: 100%;
   }
 
   nav ul {
-    gap: 10px;
-    flex-direction: column;
+    flex-basis: 100%;
+    gap: 8px;
+  }
+
+  nav a {
+    font-size: 0.8rem;
+  }
+
+  /* Global */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Home Page */
+  .hero {
+    padding: 40px 12px;
+    gap: 20px;
   }
 
   .hero h1 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 
   .hero p {
-    font-size: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .hero-card {
+    padding: 20px 15px;
+    border-radius: 20px;
   }
 
   .button-container {
+    flex-direction: column;
     gap: 10px;
   }
 
   .btn-yes, .btn-no {
-    padding: 10px 20px;
+    width: 100%;
+    padding: 11px 20px;
+    font-size: 0.9rem;
+    min-width: auto;
+    flex: none;
+  }
+
+  .cute-features {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .feature-card {
+    padding: 16px;
+  }
+
+  .feature-card h3 {
+    font-size: 1rem;
+  }
+
+  .feature-card p {
     font-size: 0.9rem;
   }
 
-  .story h1,
-  .messages h1,
-  .gallery h1,
-  .surprise h1 {
-    font-size: 1.5rem;
+  .btn-soft {
+    width: 100%;
+    padding: 9px 18px;
+    font-size: 0.85rem;
   }
 
-  .card {
-    padding: 25px 15px;
+  .stat-pill {
+    font-size: 0.75rem;
+    padding: 7px 10px;
+  }
+
+  .hero-mini-stats {
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .reasons-list {
+    font-size: 0.85rem;
+  }
+
+  .reasons-list li {
+    margin: 5px 0;
+  }
+
+  /* Story Page */
+  .story {
+    padding: 40px 12px;
+  }
+
+  .event {
+    padding-left: 60px;
+    margin-bottom: 30px;
+  }
+
+  .timeline::before {
+    left: 12px;
+  }
+
+  .event-content {
+    padding: 18px;
+  }
+
+  .event-content::after {
+    left: -65px;
+  }
+
+  .event h3 {
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+  }
+
+  .event p {
+    font-size: 0.85rem;
+  }
+
+  /* Messages Page */
+  .messages {
+    padding: 40px 12px;
+  }
+
+  .messages-title {
+    margin-bottom: 35px;
+    font-size: 1.6rem;
+  }
+
+  .love-letters-container {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .letter-content {
+    padding: 24px 18px;
+  }
+
+  .emoji-icon {
+    font-size: 2rem;
+  }
+
+  .letter-text {
     font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .letter-header {
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+  }
+
+  .letter-footer {
+    margin-top: 14px;
+    padding-top: 10px;
+  }
+
+  .decorative-line {
+    width: 45px;
+  }
+
+  .love-letter:hover .decorative-line {
+    width: 70px;
+  }
+
+  /* Gallery Page */
+  .gallery {
+    padding: 40px 12px;
   }
 
   .gallery-grid {
     grid-template-columns: 1fr;
-    gap: 25px;
+    gap: 15px;
   }
 
   .polaroid-frame {
@@ -1235,6 +1489,31 @@ nav a:hover::after {
 
   .polaroid-image {
     height: 200px;
+    margin-bottom: 10px;
+  }
+
+  .polaroid-label {
+    font-size: 0.8rem;
+  }
+
+  /* Surprise Page */
+  .surprise {
+    padding: 40px 12px;
+    gap: 20px;
+  }
+
+  .surprise h1 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .surprise-subtitle {
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  .surprise-box-container {
+    margin: 15px 0;
   }
 
   .gift-box-front {
@@ -1242,229 +1521,44 @@ nav a:hover::after {
   }
 
   .ribbon {
-    height: 100px;
+    width: 12px;
   }
 
   .bow {
-    top: -8px;
+    top: -6px;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-bottom: 15px solid #ff1493;
+    border-bottom: 12px solid #ff1493;
   }
 
   .bow::after {
     top: 3px;
-    left: -15px;
-    width: 30px;
-    height: 12px;
+    left: -14px;
+    width: 28px;
+    height: 10px;
+  }
+
+  .hidden-message {
+    padding: 0 12px;
   }
 
   .message-content {
-    padding: 35px 20px;
-    border-radius: 15px;
+    padding: 25px 18px;
+    border-radius: 14px;
   }
 
   .hidden-message h2 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
+    font-size: 1.3rem;
+    margin-bottom: 12px;
   }
 
   .hidden-message p {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
   }
 
   .heart-decoration {
-    font-size: 1.5rem;
-    letter-spacing: 5px;
     margin-top: 15px;
-  }
-
-  .surprise-subtitle {
-    font-size: 1rem;
-    margin-bottom: 40px;
+    letter-spacing: 5px;
   }
 }
 
-
-/* ============================================
-   HOME PAGE REFINEMENT V2
-   ============================================ */
-
-.hero-v2 {
-  position: relative;
-  gap: 26px;
-  padding: 74px 20px;
-  background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.8), transparent 45%),
-              radial-gradient(circle at 80% 70%, rgba(255, 180, 210, 0.35), transparent 45%);
-}
-
-.hero-card-v2 {
-  width: min(850px, 100%);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 242, 249, 0.92));
-  border: 1px solid #ffd2e6;
-  box-shadow: 0 20px 50px rgba(255, 82, 143, 0.2);
-}
-
-.hero-v2 h1 {
-  font-size: clamp(2.2rem, 5vw, 4rem);
-  line-height: 1.1;
-}
-
-.hero-subline {
-  max-width: 42ch;
-  margin: 0 auto 34px auto;
-  color: #7f3e5d;
-  font-weight: 500;
-}
-
-.floating-badge {
-  position: absolute;
-  background: #fff;
-  color: #d53f76;
-  border-radius: 999px;
-  padding: 10px 14px;
-  box-shadow: var(--shadow);
-  font-weight: 600;
-  font-size: 0.92rem;
-}
-
-.badge-1 { top: 92px; left: 8%; transform: rotate(-7deg); }
-.badge-2 { top: 130px; right: 10%; transform: rotate(8deg); }
-
-.cute-features-v2 {
-  grid-template-columns: repeat(3, minmax(220px, 1fr));
-  align-items: stretch;
-}
-
-.reasons-list {
-  list-style: none;
-  display: grid;
-  gap: 8px;
-  text-align: left;
-  color: #6a4f5b;
-  font-size: 0.96rem;
-}
-
-.reasons-list li::before {
-  content: '💖 ';
-}
-
-@media (max-width: 900px) {
-  .floating-badge { display: none; }
-  .cute-features-v2 { grid-template-columns: 1fr; }
-}
-
-/* Mobile polish for landing page */
-@media (max-width: 768px) {
-  nav {
-    padding: 12px 14px;
-  }
-
-  nav h2 {
-    width: 100%;
-    text-align: center;
-    font-size: 1.45rem;
-  }
-
-  nav ul {
-    width: 100%;
-    justify-content: center;
-    gap: 10px 14px;
-  }
-
-  nav a {
-    font-size: 0.88rem;
-  }
-
-  .hero-v2 {
-    padding: 42px 14px;
-    min-height: auto;
-  }
-
-  .hero-card-v2 {
-    border-radius: 22px;
-    padding: 22px 14px;
-  }
-
-  .hero-subline {
-    font-size: 1rem;
-    margin-bottom: 22px;
-  }
-
-  .button-container {
-    gap: 12px;
-  }
-
-  .btn-yes,
-  .btn-no,
-  .btn-soft {
-    width: 100%;
-  }
-
-  .hero-mini-stats {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .stat-pill {
-    justify-content: center;
-  }
-}
-
-@media (max-width: 420px) {
-  nav ul {
-    gap: 8px 10px;
-  }
-
-  .hero-v2 h1 {
-    font-size: 1.8rem;
-  }
-
-  .feature-card {
-    padding: 18px 14px;
-  }
-
-  .reasons-list {
-    font-size: 0.92rem;
-  }
-@media (max-width: 900px) {
-  .hero h1 {
-    font-size: 2.7rem;
-  }
-
-  .cute-features {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 600px) {
-  nav {
-    padding: 14px 18px;
-    gap: 10px;
-  }
-
-  nav ul {
-    gap: 16px;
-  }
-
-  .hero {
-    padding: 50px 14px;
-  }
-
-  .hero-card {
-    padding: 26px 16px;
-  }
-
-  .hero h1 {
-    font-size: 2.1rem;
-  }
-
-  .hero p {
-    font-size: 1.1rem;
-    margin-bottom: 32px;
-  }
-
-  .btn-yes, .btn-no {
-    width: 100%;
-  }
-}
